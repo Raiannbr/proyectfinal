@@ -1,18 +1,28 @@
+//importar todo lo que necesitamos
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import NavBar from './components/navegador/NavBar';
-import Alianza from './components/paginas/Alianza';
-import Productos from './components/paginas/Productos';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+
+//importamos componentes
+import NavBar from './components/NavBar';
+import ItemListContainer from "./components/ItemListContainer";
+import Categories from "./components/Categories";
 
 
 function App() {
   return (
     <div className="App">
       
-        <Router>
-          <NavBar/>
-        </Router>
+      <BrowserRouter>
+        <NavBar/>
+        <Switch>
+            <Route exact path = '/' component = { ItemListContainer }/>
+            <Route exact path = {'./Productos/Categoria/:categoriaByID'} component = {Categories}/>
+        </Switch>
 
+        {/* Cualquier url que no este escrita nos redicciona a ./ */}
+        <Redirect to = '/'/>
+
+      </BrowserRouter>
     </div>
   );
 }
