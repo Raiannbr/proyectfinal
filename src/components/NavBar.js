@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import{
     Collapse,
-    Navbar,
+    Navbar as NavBarB,
     NavbarToggler,
     NavbarBrand,
     Nav,
@@ -22,16 +22,18 @@ const NavBar = () => {
 
     return(
 
-        <NavBar className = 'containerNav' dark expand='md'>
+        <NavBarB className = 'containerNav' dark expand='md'>
             <NavbarBrand> <i className= 'https://pm1.narvii.com/6187/09f9647a65c174ec43b776894761007927a4dbfb_hq.jpg'></i>Alianza Reverde
             </NavbarBrand>
             <div className='navbar-right'>
                 <NavbarToggler onClick = {toggle}/>
-                <Collapse>
-                    <Nav>
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="linksNav" navbar>
                         <Link to='/' className='nav-item'>Producto</Link>
                         <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>Categorias</DropdownToggle>
+                            <DropdownToggle nav caret>
+                                Categorias
+                                </DropdownToggle>
                             <DropdownMenu right>
                                 <Link to='/Productos/Categoria/Dulces'>
                                 <DropdownItem>Productos dulces</DropdownItem></Link>
@@ -43,7 +45,7 @@ const NavBar = () => {
                 </Collapse>
                 <CartWidget/>
             </div>
-        </NavBar>
+        </NavBarB>
 
     );
 
