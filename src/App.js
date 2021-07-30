@@ -16,11 +16,13 @@ function App() {
         <NavBar/>
         <Switch>
             <Route exact path = '/' component = { ItemListContainer }/>
-            <Route exact path = {'./Productos/Categoria/:categoriaByID'} component = {Categories}/>
+            <Route exact path = '/Productos/Categoria/:categoriaByID' component = {Categories}/>
+            <Route component = { ItemListContainer }>
+              
+            </Route>
         </Switch>
 
-        {/* Cualquier url que no este escrita nos redicciona a ./ */}
-        <Redirect to = '/'/>
+       
 
       </BrowserRouter>
     </div>
